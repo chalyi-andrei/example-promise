@@ -15,3 +15,18 @@
 //     }
 //     );
 // });
+//json
+$('.btn1').on('click', function() {
+    $('.main2').load('user.json');
+});
+$('.btn2').on('click', function() {
+
+
+    var user = 'https://jsonplaceholder.typicode.com/photos/1';
+    $.getJSON(user, function(response) {
+        console.log(response);
+        $('.img').attr('src',response.thumbnailUrl);
+    });
+
+
+});
