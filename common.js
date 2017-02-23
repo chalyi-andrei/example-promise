@@ -36,14 +36,15 @@ $('.btn3').on('click', function() {
     promise
         .then(() => {
             let x = 10;
-            var user = 'https://jsonplaceholder.typicode.com/ph2otos/3';
+            var user = 'https://jsonplaceholder.typicode.com/photos/3';
             return $.getJSON(user, function(response) {
                 $('.img').attr('src',response.thumbnailUrl);
             });
         })
         .then((photo) => {
             var userPhoto = photo;
-            $('.paragraph').after('<p>Цепочка промисов закончена url фотографии= ' + photo + '</p>');
+            $('.paragraph').after('<p>Цепочка промисов закончена url фотографии= ' + photo.thumbnailUrl
+                + '</p>');
         })
         .catch((reject) => alert('Error! ' + reject));
         $('.paragraph').text('Сначала выполнится эта строчка, а промис выполнится асинхронно');
